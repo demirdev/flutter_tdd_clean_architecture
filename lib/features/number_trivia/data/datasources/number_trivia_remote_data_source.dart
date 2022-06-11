@@ -1,7 +1,5 @@
 import 'package:flutter_tdd_clean_architecture/features/number_trivia/data/models/number_tirivia_model.dart';
 
-import '../../domain/entities/number_trivia.dart';
-
 abstract class NumberTriviaRemoteDataSource {
   /// Calls the http://numbersapi.com/{number} endpoint.
   ///
