@@ -43,7 +43,7 @@ class MockNumberTriviaRemoteDataSource extends _i1.Mock
                   _FakeNumberTriviaModel_0()))
           as _i4.Future<_i2.NumberTriviaModel>);
   @override
-  _i4.Future<_i2.NumberTriviaModel> getRondomNumberTrivia() =>
+  _i4.Future<_i2.NumberTriviaModel> getRandomNumberTrivia() =>
       (super.noSuchMethod(Invocation.method(#getRondomNumberTrivia, []),
               returnValue: Future<_i2.NumberTriviaModel>.value(
                   _FakeNumberTriviaModel_0()))

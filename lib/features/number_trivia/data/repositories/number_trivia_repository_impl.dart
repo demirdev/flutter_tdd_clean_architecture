@@ -31,7 +31,7 @@ class NumberTriviaRepositoryImpl implements NumberTriviaRepository {
   @override
   Future<Either<Failure, NumberTrivia>> getRondomNumberTrivia() async {
     return await _getTrivia(() {
-      return remoteDataSource.getRondomNumberTrivia();
+      return remoteDataSource.getRandomNumberTrivia();
     });
   }
 

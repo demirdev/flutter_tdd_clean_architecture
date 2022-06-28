@@ -95,7 +95,7 @@ void main() {
         // arrange
         setUpMockHttpClientSuccess200();
         // act
-        dataSource.getRondomNumberTrivia();
+        dataSource.getRandomNumberTrivia();
         // assert
         verify(mockHttpClient.get(Uri.parse('http://numbersapi.com/random'),
             headers: {'Content-Type': 'application/json'}));
@@ -109,7 +109,7 @@ void main() {
         setUpMockHttpClientSuccess200();
 
         // act
-        final result = await dataSource.getRondomNumberTrivia();
+        final result = await dataSource.getRandomNumberTrivia();
 
         // assert
         expect(result, equals(tNumberTriviaModel));
@@ -123,7 +123,7 @@ void main() {
         setUpMockHttpClientFailure404();
 
         // act
-        final call = dataSource.getRondomNumberTrivia;
+        final call = dataSource.getRandomNumberTrivia;
 
         // assert
         expect(() => call(), throwsA(TypeMatcher<ServerException>()));

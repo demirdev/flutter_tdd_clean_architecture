@@ -193,14 +193,14 @@ void main() {
         'should return remote data when the call to remote data source is successfull',
         () async {
           // arrange
-          when(mockRemoteDataSource.getRondomNumberTrivia())
+          when(mockRemoteDataSource.getRandomNumberTrivia())
               .thenAnswer((realInvocation) async => tNumberTriviaModel);
 
           // act
           final _result = await repository.getRondomNumberTrivia();
 
           // assert
-          verify(mockRemoteDataSource.getRondomNumberTrivia());
+          verify(mockRemoteDataSource.getRandomNumberTrivia());
           expect(_result, equals(Right(tNumberTriviaModel)));
         },
       );
@@ -209,14 +209,14 @@ void main() {
         'should cache the data localy when the call to remote data source is successfull',
         () async {
           // arrange
-          when(mockRemoteDataSource.getRondomNumberTrivia())
+          when(mockRemoteDataSource.getRandomNumberTrivia())
               .thenAnswer((realInvocation) async => tNumberTriviaModel);
 
           // act
           final _result = await repository.getRondomNumberTrivia();
 
           // assert
-          verify(mockRemoteDataSource.getRondomNumberTrivia());
+          verify(mockRemoteDataSource.getRandomNumberTrivia());
           verify(mockLocalDataSource.cacheNumberTrivia(tNumberTriviaModel));
         },
       );
@@ -225,14 +225,14 @@ void main() {
         'should return server failure when the call to remote data source is unsuccessfull',
         () async {
           // arrange
-          when(mockRemoteDataSource.getRondomNumberTrivia())
+          when(mockRemoteDataSource.getRandomNumberTrivia())
               .thenThrow(ServerException());
 
           // act
           final _result = await repository.getRondomNumberTrivia();
 
           // assert
-          verify(mockRemoteDataSource.getRondomNumberTrivia());
+          verify(mockRemoteDataSource.getRandomNumberTrivia());
           verifyZeroInteractions(mockLocalDataSource);
           expect(_result, equals(Left(ServerFailures())));
         },
