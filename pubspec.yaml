@@ -39,6 +39,7 @@ dependencies:
       url: https://github.com/uSlashVlad/data_connection_checker
   http:
   shared_preferences:
+  meta:
 
 
   # The following adds the Cupertino Icons font to your application.
