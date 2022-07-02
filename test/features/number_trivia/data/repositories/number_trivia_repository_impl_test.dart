@@ -120,7 +120,7 @@ void main() {
           // assert
           verify(mockRemoteDataSource.getConcreteNumberTrivia(testNumber));
           verifyZeroInteractions(mockLocalDataSource);
-          expect(_result, equals(Left(ServerFailures())));
+          expect(_result, equals(Left(ServerFailure())));
         },
       );
 
@@ -158,7 +158,7 @@ void main() {
           // assert
           verifyZeroInteractions(mockRemoteDataSource);
           verify(mockLocalDataSource.getLastNumberTrivia());
-          expect(_result, equals(Left(CacheFailures())));
+          expect(_result, equals(Left(CacheFailure())));
         },
       );
     });
@@ -234,7 +234,7 @@ void main() {
           // assert
           verify(mockRemoteDataSource.getRandomNumberTrivia());
           verifyZeroInteractions(mockLocalDataSource);
-          expect(_result, equals(Left(ServerFailures())));
+          expect(_result, equals(Left(ServerFailure())));
         },
       );
 
@@ -272,7 +272,7 @@ void main() {
           // assert
           verifyZeroInteractions(mockRemoteDataSource);
           verify(mockLocalDataSource.getLastNumberTrivia());
-          expect(_result, equals(Left(CacheFailures())));
+          expect(_result, equals(Left(CacheFailure())));
         },
       );
     });
