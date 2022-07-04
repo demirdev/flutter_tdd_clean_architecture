@@ -3,6 +3,7 @@ import 'package:flutter_tdd_clean_architecture/core/error/exceptions.dart';
 import 'package:flutter_tdd_clean_architecture/core/error/failures.dart';
 import 'package:flutter_tdd_clean_architecture/features/number_trivia/data/datasources/number_trivia_local_data_source.dart';
 import 'package:flutter_tdd_clean_architecture/features/number_trivia/data/datasources/number_trivia_remote_data_source.dart';
+import 'package:flutter_tdd_clean_architecture/features/number_trivia/data/models/number_tirivia_model.dart';
 import 'package:flutter_tdd_clean_architecture/features/number_trivia/domain/entities/number_trivia.dart';
 import 'package:flutter_tdd_clean_architecture/features/number_trivia/domain/repositories/number_trivia_repository.dart';
 
@@ -43,7 +44,8 @@ class NumberTriviaRepositoryImpl implements NumberTriviaRepository {
       try {
         final remoteTrivia = await getConcreteOrRandom();
 
-        localDataSource.cacheNumberTrivia(remoteTrivia);
+        await localDataSource.cacheNumberTrivia(NumberTriviaModel(
+            text: remoteTrivia.text, number: remoteTrivia.number));
 
         return Right(remoteTrivia);
       } on ServerException {
